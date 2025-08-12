@@ -13,6 +13,8 @@ struct HomeView: View {
             VStack(spacing: 20) {
                 NavLinkComponent(destination: ExampleView(), buttonTitle: "Example")
                 
+                NavLinkComponent(destination: BackgroundPlaybackView(), buttonTitle: "Background Playback")
+                
                 Spacer()
             }
             .navigationTitle("POC List")
