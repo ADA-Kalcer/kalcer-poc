@@ -12,6 +12,7 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing: 20) {
                 NavLinkComponent(destination: ExampleView(), buttonTitle: "Example")
+                NavLinkComponent(destination: SupabaseTestView(), buttonTitle: "Supabase")
                 
                 Spacer()
             }
