@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		06DAD9532E4B2967008D9949 /* statue_story.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 06DAD9522E4B2967008D9949 /* statue_story.mp3 */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		06DAD9522E4B2967008D9949 /* statue_story.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = statue_story.mp3; sourceTree = "<group>"; };
 		9E10E4962E4B114B00052770 /* KalcerPOC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = KalcerPOC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		06DAD9512E4B28F0008D9949 /* Exceptions for "KalcerPOC" folder in "KalcerPOC" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 9E10E4952E4B114B00052770 /* KalcerPOC */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		9E10E4982E4B114B00052770 /* KalcerPOC */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				06DAD9512E4B28F0008D9949 /* Exceptions for "KalcerPOC" folder in "KalcerPOC" target */,
+			);
 			path = KalcerPOC;
 			sourceTree = "<group>";
 		};
@@ -34,6 +52,7 @@
 			children = (
 				9E10E4982E4B114B00052770 /* KalcerPOC */,
 				9E10E4972E4B114B00052770 /* Products */,
+				06DAD9522E4B2967008D9949 /* statue_story.mp3 */,
 			);
 			sourceTree = "<group>";
 		};
@@ -109,6 +128,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06DAD9532E4B2967008D9949 /* statue_story.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,9 +272,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KalcerPOC/Preview Content\"";
-				DEVELOPMENT_TEAM = HRYT2ZQSJ5;
+				DEVELOPMENT_TEAM = 4D8MTY7F2R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KalcerPOC/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location even in the background to send you timely alerts about nearby points of interest.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location even in the background to send you timely alerts about nearby points of interest.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you about nearby points of interest.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -281,9 +305,13 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"KalcerPOC/Preview Content\"";
-				DEVELOPMENT_TEAM = HRYT2ZQSJ5;
+				DEVELOPMENT_TEAM = 4D8MTY7F2R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = KalcerPOC/Info.plist;
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "This app needs your location even in the background to send you timely alerts about nearby points of interest.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "This app needs your location even in the background to send you timely alerts about nearby points of interest.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "We need your location to notify you about nearby points of interest.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

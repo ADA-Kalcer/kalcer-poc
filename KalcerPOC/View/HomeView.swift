@@ -12,6 +12,8 @@ struct HomeView: View {
         NavigationStack {
             VStack(spacing: 20) {
                 NavLinkComponent(destination: ExampleView(), buttonTitle: "Example")
+                NavLinkComponent(destination: GeoPushView(), buttonTitle: "GeoPush")
+
                 
                 Spacer()
             }
