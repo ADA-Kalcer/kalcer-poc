@@ -17,6 +17,7 @@ class BackgroundPlaybackViewModel: ObservableObject {
     
     @Published var isPlaying = false
     @Published var isOtherAudioPlaying = false
+    @Published var currentVolume: Float = 1.0
     
     init() {
         setupAudioSession()
@@ -37,13 +38,7 @@ class BackgroundPlaybackViewModel: ObservableObject {
             try AVAudioSession.sharedInstance().setActive(true)
             
             self.isOtherAudioPlaying = AVAudioSession.sharedInstance().isOtherAudioPlaying
-            if self.isOtherAudioPlaying {
-                self.player?.volume = 0.5
-                self.localPlayer?.volume = 0.5
-            } else {
-                self.player?.volume = 1
-                self.localPlayer?.volume = 1
-            }
+            setVolume()
         } catch {
             print("Audio session error: \(error)")
         }
@@ -59,15 +54,23 @@ class BackgroundPlaybackViewModel: ObservableObject {
                let type = AVAudioSession.SilenceSecondaryAudioHintType(rawValue: typeValue) {
                 if type == .begin {
                     self.isOtherAudioPlaying = true
-                    self.player?.volume = 0.5
-                    self.localPlayer?.volume = 0.5
                 } else {
                     self.isOtherAudioPlaying = false
-                    self.player?.volume = 1
-                    self.localPlayer?.volume = 1
                 }
+                self.setVolume()
             }
         }
+    }
+    
+    private func setVolume() {
+        if isOtherAudioPlaying {
+            currentVolume = 0.4
+        } else {
+            currentVolume = 1.0
+        }
+        
+        player?.volume = currentVolume
+        localPlayer?.volume = currentVolume
     }
     
     //        remote audio play
