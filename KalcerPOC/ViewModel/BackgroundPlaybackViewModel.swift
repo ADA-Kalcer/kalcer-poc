@@ -54,8 +54,10 @@ class BackgroundPlaybackViewModel: ObservableObject {
                let type = AVAudioSession.SilenceSecondaryAudioHintType(rawValue: typeValue) {
                 if type == .begin {
                     self.isOtherAudioPlaying = true
+                    print("Another app's audio is active — mixing.")
                 } else {
                     self.isOtherAudioPlaying = false
+                    print("Your app's audio is primary again.")
                 }
                 self.setVolume()
             }
