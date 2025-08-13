@@ -16,12 +16,14 @@ class BackgroundPlaybackViewModel: ObservableObject {
     private var localPlayer: AVAudioPlayer?
     
     @Published var isPlaying = false
+    @Published var isOtherAudioPlaying = false
     
     init() {
-        configureAudioSession()
+        setupAudioSession()
+        checkForMixedAudio()
     }
     
-    private func configureAudioSession() {
+    private func setupAudioSession() {
         do {
             /*
              category
@@ -33,8 +35,38 @@ class BackgroundPlaybackViewModel: ObservableObject {
              */
             try AVAudioSession.sharedInstance().setCategory(.playback, mode: .default, options: [.mixWithOthers])
             try AVAudioSession.sharedInstance().setActive(true)
+            
+            self.isOtherAudioPlaying = AVAudioSession.sharedInstance().isOtherAudioPlaying
+            if self.isOtherAudioPlaying {
+                self.player?.volume = 0.5
+                self.localPlayer?.volume = 0.5
+            } else {
+                self.player?.volume = 1
+                self.localPlayer?.volume = 1
+            }
         } catch {
             print("Audio session error: \(error)")
+        }
+    }
+    
+    private func checkForMixedAudio() {
+        NotificationCenter.default.addObserver(
+            forName: AVAudioSession.silenceSecondaryAudioHintNotification,
+            object: nil,
+            queue:.main
+        ) { notification in
+            if let typeValue = notification.userInfo?[AVAudioSessionSilenceSecondaryAudioHintTypeKey] as? UInt,
+               let type = AVAudioSession.SilenceSecondaryAudioHintType(rawValue: typeValue) {
+                if type == .begin {
+                    self.isOtherAudioPlaying = true
+                    self.player?.volume = 0.5
+                    self.localPlayer?.volume = 0.5
+                } else {
+                    self.isOtherAudioPlaying = false
+                    self.player?.volume = 1
+                    self.localPlayer?.volume = 1
+                }
+            }
         }
     }
     
