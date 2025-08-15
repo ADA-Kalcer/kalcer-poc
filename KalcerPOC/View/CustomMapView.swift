@@ -28,8 +28,19 @@ struct CustomMapView: View {
                         .padding(5)
                 }
             }
+            
+            MapCircle(center: region.center, radius: 1000)
+                .foregroundStyle(.red.opacity(0.3))
+                .stroke(.red, lineWidth: 2)
         }
         .edgesIgnoringSafeArea(.all)
+    }
+    
+    init() {
+        region = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: locationMgr.latitude ?? 0, longitude: locationMgr.longitude ?? 0),
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+            )
     }
 }
 
