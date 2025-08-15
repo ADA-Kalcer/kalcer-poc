@@ -15,6 +15,9 @@ struct HomeView: View {
                 
                 NavLinkComponent(destination: BackgroundPlaybackView(), buttonTitle: "Background Playback")
                 
+                NavLinkComponent(destination: CustomMapView(), buttonTitle: "Custom Pin Point")
+                
+                NavLinkComponent(destination: CoreLocationView(), buttonTitle: "Core Location")
                 Spacer()
             }
             .navigationTitle("POC List")
